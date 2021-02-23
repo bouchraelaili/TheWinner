@@ -2,20 +2,20 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const Category = new Schema(
+const question = new Schema(
   {
-    nom: {
+    Phquestion: {
       type: String,
       required: true,
       trim: true,
-      minlenght: 3,
+      minlenght:10,
     }
-   
+    
   },
   {
     versionKey: false
 }
 );
 
-const CategoryList = mongoose.model("Category", Category);
-module.exports = CategoryList;
+const questionList = mongoose.model("question", question);
+module.exports = questionList;

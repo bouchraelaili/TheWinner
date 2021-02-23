@@ -5,7 +5,7 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(cors());
@@ -35,9 +35,12 @@ mongoose.connect('mongodb://localhost:27017/Thewinner' , {
 // import router 
 
 const categoryRoute = require('./routes/category');
+const questionroute = require('./routes/question');
 
 
 app.use('/category' ,categoryRoute);
+app.use('/question' ,questionroute);
+
 
 
 
