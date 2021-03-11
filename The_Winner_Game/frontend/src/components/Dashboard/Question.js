@@ -65,7 +65,7 @@ const getIdQuestion = (id)=>{
   </nav>
   <div className="container-xl">
 
-    <div className="table-responsive" style={{width: '120%'}}>
+    <div className="" style={{width: '100%'}}>
       <div className="table-wrapper">
         <div className="table-title">
           <div className="row">
@@ -77,7 +77,7 @@ const getIdQuestion = (id)=>{
             </div>
           </div>
         </div>
-        <table className="table table-striped table-hover">
+        <table className="table table-striped table-hover ">
           <thead>
             <tr>
               <th>Question</th>
@@ -85,7 +85,6 @@ const getIdQuestion = (id)=>{
               <th>Incorrect Answers 1</th>
               <th>Incorrect Answers 2</th>
               <th>Incorrect Answers 3</th>
-              <th>Category</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -97,7 +96,6 @@ const getIdQuestion = (id)=>{
           <td>{item.incorrectAnswer1}</td>
           <td>{item.incorrectAnswer2}</td>
           <td>{item.incorrectAnswer3}</td>
-          <td>{item.nameCategory}</td>
           <td>		
 
              <Link  onClick={()=> getIdQuestion(item._id)} class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></Link>

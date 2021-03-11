@@ -1,7 +1,6 @@
 const express = require('express')
 let User = require('../models/users.model');
 const router = express.Router();
-
 const jwt=require('jsonwebtoken');
 const bcrypt=require('bcrypt');
 
@@ -68,6 +67,7 @@ if(user){
           }
        if(result){
           let token=jwt.sign({userName :userName},'tokenkey',(err,token) => {
+            res.cookie("token", token)  
             res.json({
                 token : token
             })
@@ -189,7 +189,13 @@ if(user){
      
     })
     
-
+    router.get('/logout', (req, res) => {
+      const deconnect = res.clearCookie("token")
+  
+      res.json({
+          message: 'User is Signout !!'
+      })
+  })
 
 
 

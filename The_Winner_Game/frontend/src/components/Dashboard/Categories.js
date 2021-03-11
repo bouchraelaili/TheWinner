@@ -83,7 +83,7 @@ getId(id){
    </nav>
    <div className="container-xl">
 
-     <div className="table-responsive">
+     <div className="">
        <div className="table-wrapper">
          <div className="table-title">
            <div className="row">

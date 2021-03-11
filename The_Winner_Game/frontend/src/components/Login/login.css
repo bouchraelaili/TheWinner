@@ -32,11 +32,11 @@
 	 font-weight: 300;
 }
  .wrapper {
-	 background: #50a3a2;
-	 background: -webkit-linear-gradient(top left,#50a3a2 0%,#53e3a6 100%);
-	 background: -moz-linear-gradient(top left,#50a3a2 0%,#53e3a6 100%);
-	 background: -o-linear-gradient(top left,#50a3a2 0%,#53e3a6 100%);
-	 background: linear-gradient(to bottom right,#50a3a2 0%,#53e3a6 100%);
+	 background: #050207;
+	 background: -webkit-linear-gradient(top left,#17031f 0%,#691670 100%);
+	 background: -moz-linear-gradient(top left,#17031f 0%,#691670 100%);
+	 background: -o-linear-gradient(top left,#17031f 0%,#691670 100%);
+	 background: linear-gradient(to bottom right,#17031f 0%,#691670 100%);
 	 position: absolute;
 	 left: 0;
 	 width: 100%;
@@ -86,7 +86,7 @@
  form input:focus {
 	 background-color: white;
 	 width: 350px;
-	 color: #53e3a6;
+	 color: #691670;
 }
  form button,#AddCatg {
 	 appearance: none;
@@ -94,7 +94,7 @@
 	 background-color: white;
 	 border: 0;
 	 padding: 10px 15px;
-	 color: #53e3a6;
+	 color: #691670;
 	 border-radius: 3px;
 	 width: 200px;
 	 cursor: pointer;
@@ -110,7 +110,8 @@ form a {
 }
 a:hover {
 	text-decoration: none;
-	color: black;
+	color: rgba(255,255,255,0.4);
+	font-size: 13px;
 }
 
  .bg-bubbles {

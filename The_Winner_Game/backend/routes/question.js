@@ -4,7 +4,6 @@ const router = express.Router();
 
 // ______________________show all question ______________________
 
-
 router.get('/', (req, res) => {
   Question.find()
     .populate('Category')
@@ -13,12 +12,9 @@ router.get('/', (req, res) => {
 });
 
 
-
 // ______________________get question by id__________________
-router.get('/:id', (req, res) => {
-  Question.findById({
-      _id: `${req.params.id}`
-    })
+router.get('/oneQuestion/:id', (req, res) => {
+  Question.findById(req.params.id)
     .then((question) => res.json(question))
     .catch((err) => res.status(400).json("Error :" + err));
 });
@@ -48,19 +44,16 @@ router.route("/add").post((req, res) => {
 
 //__________________ get question's category to updated__________________ 
 
-// router.get('/update/:id', (req,res) =>{
+router.get('/update/:id', (req,res) =>{
 
-//   Question.findById(req.params.id)
-//   .populate('category')
-//   .then((question) => res.json(question))
-//   .catch((err) => res.status(400).json("Error :" + err));
-// });
+  Question.findById(req.params.id)
+  .populate('nameCategory')
+  .then((question) => res.json(question))
+  .catch((err) => res.status(400).json("Error :" + err));
+});
 //______________________updating question______________________
 router.route("/update/:id").put((req, res) => {
-
-
     // Find  and update it with the request body
-
     Question.findByIdAndUpdate(req.params.id,{
       question: req.body.question,
       correctAnswer: req.body.correctAnswer,

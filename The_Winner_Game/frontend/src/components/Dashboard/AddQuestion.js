@@ -56,7 +56,7 @@ function AddQuestion() {
         console.log(err);
     });
     
-    },[])
+    })
   return(
     
     <div className="container-xl">
@@ -105,7 +105,8 @@ function AddQuestion() {
              <input className="floatlabel" id="name" type="text" placeholder="Incorrect Answer 3" required 
             value={incorrectAnswer3}
             onChange={e => setIncorrectAnswer3(e.target.value)} />
-       
+
+    
     
        <select id="select">
              {nameCategory && nameCategory.map(item =>(

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import axios from 'axios';
 import '../Login/login.css';
-
+import toastr from 'toastr';
+import "toastr/build/toastr.css";
 
 const Login = (props) => {
 
+	const history = useHistory();
 	const [userName, setUserName] = useState();
     const [password, setPassword] = useState();
 
@@ -14,20 +16,21 @@ const Login = (props) => {
 
 	const user = {userName,password};
 
-	axios.post(`http://localhost:3030/user/login`, user)
+	axios.post(`http://localhost:3030/admin/login`, user)
 		.then(res => {
-		    if(res.error){
-				return false
-			}else{
-				console.log(res.data.token);
+			console.log(res)
+			if(!res.data.message){ 
+			 let token= res.data.token;
+			 localStorage.setItem("token", token);
+			 history.push('/categories');
+			 toastr.info('User is authenticated SuccessFully', `Welcome ${user.userName}`, {
+				positionClass: "toast-top-right",
+			})
 
-				let token = res.data.token;
-		
-			
-		  
-				localStorage.setItem("token", token);
-				 console.log(res.data);
-	             props.history.push('/categories')
+			}else{
+				toastr.warning(res.error, 'Username Or password invalid !!!! Please Check form !', {
+                    positionClass: "toast-top-left",
+                })
 			}
 		 
 		})
@@ -35,7 +38,7 @@ const Login = (props) => {
   return(
 <div className="wrapper">
 	<div className="container">
-		<h1>Admin Login</h1>
+		<h1> Admin Login</h1>
 		
 		<form className="form"  onSubmit={handleSubmit}>
 

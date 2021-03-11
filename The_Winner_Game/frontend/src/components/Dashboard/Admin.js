@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import '../Home/home.css';
 
 
@@ -7,9 +7,15 @@ import '../Home/home.css';
 
 
 
-const Admin = () => (
+const Admin = () => {
+    const history = useHistory();
+    const logOut =()=>{
 
-
+        localStorage.removeItem('token')
+           history.push('/admin');
+        }
+        
+    return(
     <div id="home">
 
             <section id="section">
@@ -19,7 +25,7 @@ const Admin = () => (
                 </div>
                     <h2>Admin</h2>
                 <form>
-                    <Link to="/adminLogin" className="play-button">Admin</Link>
+                    <Link  onClick={logOut} className="play-button">Admin</Link>
                 </form>           
    
             </section>
@@ -43,5 +49,5 @@ const Admin = () => (
 
     );
 
-
+}  
 export default Admin;
